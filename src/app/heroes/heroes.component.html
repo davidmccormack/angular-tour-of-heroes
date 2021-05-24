@@ -1,17 +1,35 @@
-<h2>{{hero.name | uppercase}} Details</h2>
-<div><span>id: </span>{{hero.id}}</div>
-<div><span>name: </span>{{hero.name}}</div>
-
-<div>
-  <label for="name">Hero name:</label>
-  <input id="name" placeholder="My Hero" [(ngModel)]="hero.name">
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li
+    *ngFor="let hero of heroes"
+    (click)="onSelect(hero)"
+    [class.selected]="selectedHero === hero"
+  >
   <!--
-  ngModel enables a two way data flow between
-  the vale of the input box and the property specified.
-
-  ngModel must be imported from the forms module and
-  declared within the app's imports.
-
-  Webstorm can automatically take care of this.
+  Angular's class binding can add and remove a CSS class conditionally.
+  Just add [class.some-css-class]="some-condition" to the element you want to style.
   -->
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+
+<div *ngIf="selectedHero">
+  <h2>{{selectedHero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedHero.id}}</div>
+  <div>
+    <label for="hero-name">Selected hero's name:</label>
+    <input id="hero-name" placeholder="My Hero" [(ngModel)]="selectedHero.name">
+    <!--
+    ngModel enables a two way data flow between
+    the vale of the input box and the property specified.
+
+    ngModel must be imported from the forms module and
+    declared within the app's imports.
+
+    Webstorm can automatically take care of this.
+    -->
+
+
+  </div>
 </div>
+
