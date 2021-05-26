@@ -13,23 +13,5 @@
   </li>
 </ul>
 
-<div *ngIf="selectedHero">
-  <h2>{{selectedHero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedHero.id}}</div>
-  <div>
-    <label for="hero-name">Selected hero's name:</label>
-    <input id="hero-name" placeholder="My Hero" [(ngModel)]="selectedHero.name">
-    <!--
-    ngModel enables a two way data flow between
-    the vale of the input box and the property specified.
-
-    ngModel must be imported from the forms module and
-    declared within the app's imports.
-
-    Webstorm can automatically take care of this.
-    -->
-
-
-  </div>
-</div>
+<app-hero-details [hero]="selectedHero"></app-hero-details>
 
