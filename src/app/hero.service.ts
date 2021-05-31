@@ -18,5 +18,12 @@ export class HeroService {
     this.messageService.addMessage("Hero Service - Sending heroes");
     return heroes;
   }
+
+  getHero(id : Number) {
+    //Assume her with id always exists
+    const hero = HEROES.find(h => h.id === id);
+    this.messageService.addMessage(`HeroService: fetched hero id=${id}`)
+    return of(hero);
+  }
   constructor(private messageService : MessageService) { }
 }

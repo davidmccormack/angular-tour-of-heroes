@@ -11,7 +11,6 @@ import {MessageService} from "../message.service";
 })
 export class HeroesComponent implements OnInit {
 
-  selectedHero ?: Hero;
 
   heroes ?: Hero[];
 
@@ -33,8 +32,4 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
-  onSelect(hero: Hero) {
-    this.selectedHero = hero;
-    this.messageService.addMessage(`Hero Component - User selected hero ${hero.name}`)
-  }
 }
